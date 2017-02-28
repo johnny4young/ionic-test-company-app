@@ -1,4 +1,4 @@
-# Ionic 2 Preview App
+# Ionic 1 Test App
 
  This app it's a test using the Ionic 1.
 	 
