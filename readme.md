@@ -3,7 +3,7 @@
  This app it's a test using the Ionic 1.
 	 
 	
-	### Installation & Development
+### Installation & Development
 	
 	1. clone this repo: `git clone https://github.com/johnny4young/ionic-test-company-app.git` 
 	2. `cd ionic-test-company-app`
