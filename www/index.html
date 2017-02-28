@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--* Created by Johnny IV Young Ospino.-->
+    <!--* email:  asesordeprogramacion@gmail.com-->
+    <!--* github: github.com/johnny4young-->
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="lib/Ionic Autocomplete Directive/www/lib/autocomplete/autocomplete.directive.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/company/company.controller.js"></script>
+    <script src="js/services/company.service.js"></script>
+</head>
+
+<body ng-app="starter">
+
+    <ion-view ng-controller="CompanyController">
+        <ion-header-bar class="bar-positive ">
+          Search Company
+        </ion-header-bar>
+
+        <ion-content>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text"
+                          ng-model="departmentSearch.value"
+                          ng-change="onChangeSearchCompany()"
+                          ng-model-options="{ debounce:{'default':500 , 'blur' : 0} }"
+                          placeholder="Search">
+                      <ion-spinner ng-show="loading.value" class="spinner"></ion-spinner>
+                </label>
+
+            </div>
+            <div class="list list-inset">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Department
+                    </div>
+                    <select
+                      ng-model="departmentSelected.value"
+                      ng-change="onChangeFilterDepartment(departmentSelected.value)">
+                        <option value="">All</option>
+                        <option ng-repeat="department in departments" value="{{department}}" >{{department}}</option>
+                    </select>
+                </label>
+            </div>
+            <div class="list list-inset">
+                <ion-list>
+                    <ion-item class="item-avatar" ng-repeat="item in companiesFiltered">
+                        <h2>{{item.comapnyName}} </h2>
+                        <h3>Departments: {{item.companyDepartments}}</h3>
+                        <h3>Owner: {{item.companyOwner}}</h3>
+                        <p>{{item.companyDescription}}</p>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+        </ion-content>
+
+    </ion-view>
+
+
+</body>
+
+</html>
