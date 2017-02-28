@@ -5,7 +5,7 @@
 	
 	### Installation & Development
 	
-	1. clone this repo: `git clone https://github.com/driftyco/ionic-test-company-app.git` 
+	1. clone this repo: `git clone https://github.com/johnny4young/ionic-test-company-app.git` 
 	2. `cd ionic-test-company-app`
 	3. `npm install`
 	4. run `ionic serve` from a terminal
